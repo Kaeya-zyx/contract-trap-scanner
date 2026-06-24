@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  contract-scanner:
+    build: .
+    container_name: contract-trap-scanner
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - AI_PROVIDER=builtin
+      - MAX_FILE_SIZE=10
+    volumes:
+      - ./uploads:/app/uploads
+    restart: unless-stopped

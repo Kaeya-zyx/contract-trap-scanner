@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: contract-trap-scanner
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: PORT
+        value: 10000
+      - key: AI_PROVIDER
+        value: builtin
+      - key: MAX_FILE_SIZE
+        value: 10
+    disk:
+      name: uploads
+      mountPath: /app/uploads
+      sizeGB: 1
